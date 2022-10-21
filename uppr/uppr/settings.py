@@ -19,10 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret! *******************
+SECRET_KEY = "django-insecure-=fh7@g4qq=1itf=7#h71y%8#gu&qc08%xzmwkvoec@gh(2*^k="
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production! ****************
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -33,8 +33,10 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "main_app",
     "django.contrib.admin",
+    # authentication - username/pwd (user Model lives here)
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    #sessions also track if you're logged in so user can access other routes/functionality
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -123,6 +125,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#for use with Heroku
-import django_heroku
-django_heroku.settings(locals())
+#for use with Heroku *** UNCOMMENT WHEN DEPLOYING TO HEROKU ***
+# import django_heroku
+# django_heroku.settings(locals())
