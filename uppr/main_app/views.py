@@ -9,6 +9,9 @@ from pyexpat import model
 def home(request):
     return render(request, 'home.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 def signup(request):
   #Initialize the error_message as an empty string
   error_message = ''
