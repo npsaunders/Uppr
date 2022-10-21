@@ -77,7 +77,7 @@ WSGI_APPLICATION = "uppr.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "uppr"",
+        "NAME": "uppr",
     }
 }
 
