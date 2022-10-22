@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,13 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret! *******************
+# ***In .env file; when deploying to Heroku, use the config vars to set the security key ****
+SECRET_KEY = config('SECRET_KEY')
+#put DEBUG=True in the .env file. This will be False in production since .env will not be pushed to repo/Heroku
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-
-# SECURITY WARNING: don't run with debug turned on in production! ****************
-DEBUG = True
-
-ALLOWED_HOSTS = []
+#Local Host
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

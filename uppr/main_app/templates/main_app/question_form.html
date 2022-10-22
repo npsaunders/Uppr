@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if object %}
+    <h1>Update this question: {{ object.question }}</h1>
+{% else %}
+    <h1>Add Question</h1>
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input class="btn blue" type="submit" value="{% if object %} Update Question{% else %} Add Question {% endif %}">
+</form>
+
+{% endblock %}
