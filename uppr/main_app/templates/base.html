@@ -23,7 +23,9 @@
           <ul class="right">
             <li><a href="{% url 'interview_time' %}">Interview Time</a></li> 
             <li><a href="{% url 'about' %}">About</a></li> 
-            {% if user.is_authenticated %}           
+            {% if user.is_authenticated %}                       
+            {% comment %} <li><a href="{% url 'categories_create' %}">Add a Question Category</a></li>
+            <li><a href="{% url 'categories_index' %}">View All Question Categories</a></li>  {% endcomment %}
             <li><a href="{% url 'questions_create' %}">Add a Question</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
@@ -35,6 +37,8 @@
         </div>
       </nav>
     </header>
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">
+      {% block content %} {% endblock %}
+    </main>
   </body>
 </html>

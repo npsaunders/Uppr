@@ -3,7 +3,14 @@
 {% block content %}
 
 {% if object %}
-    <h1>Update this question: {{ object.question }}</h1>
+    <h1>Update this question: </h1>
+    {{ object.user_question }}
+    {{ object.answer1 }} 
+        {{ object.answer2 }} 
+        {{ object.answer3 }} 
+        {{ object.answer4 }} 
+        {{ object.correct_answer }}
+
 {% else %}
     <h1>Add Question</h1>
 {% endif %}
@@ -15,5 +22,4 @@
     </table>
     <input class="btn blue" type="submit" value="{% if object %} Update Question{% else %} Add Question {% endif %}">
 </form>
-
 {% endblock %}

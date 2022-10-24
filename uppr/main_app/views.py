@@ -13,6 +13,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .models import Question
+# , Category
 
 # *****   VIEW  => urls.py + views.py => in Model/View/Template ******
 # The views.py is the second stop after a user clicks on a button/enters a url.
@@ -47,15 +48,21 @@ def questions_index(request):
 # based on the question_id} render detail.html page ***
 @login_required
 def questions_detail(request, question_id):
-    question = Question.objects.get(id=question_id)
+    question = Question.objects.get(id=question_id)    
+    # categories = Category.objects.all()
     return render(
         request,
         "questions/detail.html",
         {
             "question": question,
+            # "categories": categories,
         },
     )
 
+# @login_required
+# def assoc_category(request, question_id, category_id):
+#    Question.objects.get(id=question_id).categories.add(category_id)
+#    return redirect('detail', question_id=question_id)
 
 # --------------------- SIGN UP NEW USER  ---------------------------
 
@@ -94,24 +101,55 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
         "answer2",
         "answer3",
         "answer4",
+        "correct_answer",
         "time_allowed",
     ]
-    success_url = "/questions/"
+    # success_url = "/questions/"
 
     # This inherited method is called when a
     # valid question form is being submitted
     def form_valid(self, form):
     # Assign the logged in user (self.request.user)
       form.instance.user = self.request.user  # form.instance is the question
-    # Let the CreateView do its job as usual
       return super().form_valid(form)
 
 
 class QuestionUpdate(LoginRequiredMixin, UpdateView):
     model = Question
-    fields = ["user_question"]
+    fields = [        
+      "user_question",
+        "answer1",
+        "answer2",
+        "answer3",
+        "answer4",
+        "correct_answer",
+        "time_allowed",
+    ]
 
 
 class QuestionDelete(LoginRequiredMixin, DeleteView):
     model = Question
     success_url = "/questions/"
+
+
+#--------------- Category CRUD
+
+# class CategoryCreate(LoginRequiredMixin,CreateView):
+#     model = Category
+#     fields = ('name')
+
+# class CategoryUpdate(LoginRequiredMixin,UpdateView):
+#     model = Category
+#     fields = ('name')
+
+# class CategoryDelete(LoginRequiredMixin,DeleteView):
+#     model = Category
+#     success_url = '/categories/'
+
+# class CategoryDetail(LoginRequiredMixin,DetailView):
+#     model = Category
+#     template_name = 'categories/detail.html'
+
+# class CategoryList(LoginRequiredMixin,ListView):
+#     model = Category
+#     template_name = 'categories/index.html'

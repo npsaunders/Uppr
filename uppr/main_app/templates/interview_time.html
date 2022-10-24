@@ -1,4 +1,19 @@
 {% extends 'base.html' %}{% block content %}
 <h1>Interview TIME!!!!</h1>
 
- {% endblock %} 
+{% for question in questions %}
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ question.user_question }}</span>
+    </div>
+  </a>
+  <div class="card">
+    <div class="card-content">
+      
+  <button>{{ question.answer1 }}</button>
+  <button>{{ question.answer2 }}</button>
+  <button>{{ question.answer3 }}</button>
+  <button>{{ question.answer4 }}</button>
+    </div>
+</div>
+{% endfor %} {% endblock%} 
