@@ -57,6 +57,11 @@ def questions_detail(request, question_id):
         },
     )
 
+@login_required
+def profile_index(request):
+    profiles = Profile.objects.filter(user=request.user)
+    return render(request, "profiles/index.html", {"profiles": profiles})
+    
 # --------------------- SIGN UP NEW USER  ---------------------------
 
 # Function for creating a new user
