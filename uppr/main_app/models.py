@@ -18,20 +18,6 @@ class Profile(models.Model):
     
     def get_absolute_url(self):
         return reverse('profiles_detail', kwargs={'pk': self.id})
-
-# # Define the categories
-# CATEGORIES = (    
-#     ('U', 'Uncategorized'),
-#     ('B', 'Behavioral'),
-#     ('LF', 'Language-Frontend'),
-#     ('LB', 'Language-Backend'),
-#     ('FF', 'Frameworks-Frontend'),
-#     ('FB', 'Frameworks-Backend'),
-#     ('D', 'Data Structures'),
-#     ('A', 'Algorithms'),
-# )
-
-
 class Question(models.Model):
     user_question = models.TextField()
     answer1 = models.CharField(blank=True,max_length=100)
@@ -44,10 +30,6 @@ class Question(models.Model):
     # Add FK linking user to the questions the user created
     # On delete, the user's question data will be deleted
     user = models.ForeignKey(User, on_delete=models.CASCADE)    
-    # category = models.CharField(
-    #     max_length=2, 
-    #     choices=CATEGORIES, 
-    #     default=CATEGORIES[0][0])
     # changes to instance methods do not require re-generation / running of migrations
     def __str__(self):
         return self.user_question

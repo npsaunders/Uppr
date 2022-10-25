@@ -57,11 +57,6 @@ def questions_detail(request, question_id):
         },
     )
 
-# @login_required
-# def assoc_category(request, question_id, category_id):
-#    Question.objects.get(id=question_id).categories.add(category_id)
-#    return redirect('detail', question_id=question_id)
-
 # --------------------- SIGN UP NEW USER  ---------------------------
 
 # Function for creating a new user
@@ -129,29 +124,6 @@ class QuestionUpdate(LoginRequiredMixin, UpdateView):
 class QuestionDelete(LoginRequiredMixin, DeleteView):
     model = Question
     success_url = "/questions/"
-
-
-#--------------- Category CRUD
-
-# class CategoryList(LoginRequiredMixin,ListView):
-#     model = Category
-#     template_name = 'categories/index.html'
-
-# class CategoryCreate(LoginRequiredMixin,CreateView):
-#     model = Category
-#     fields = '__all__'
-
-# class CategoryUpdate(LoginRequiredMixin,UpdateView):
-#     model = Category
-#     fields = '__all__'
-
-# class CategoryDelete(LoginRequiredMixin,DeleteView):
-#     model = Category
-#     success_url = '/categories/'
-
-# class CategoryDetail(LoginRequiredMixin,DetailView):
-#     model = Category
-#     template_name = 'categories/detail.html'
 
 class ProfileList(LoginRequiredMixin,ListView):
     model = Profile
