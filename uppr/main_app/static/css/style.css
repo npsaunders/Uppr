@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  cursor: grab;
 }
 
 body {
@@ -9,10 +10,6 @@ body {
   flex-direction: column;
   max-width: 95vw;
 }
-
-/* main {
-  flex: 1 0 auto;
-} */
 
 nav {
   background-color: blue;
@@ -37,6 +34,12 @@ img {
   text-align: center;
   color: blue;
   font-weight: 700;
+}
+
+#main-title img {
+  margin-left: 25px;
+  width: 50px;
+  height: 50px;
 }
 
 h5 {
@@ -75,4 +78,20 @@ div.scroll a {
 .question-detail {
   color: blue;
   font-size: 17px;
+}
+
+
+
+/*   Add/Update Question */
+.table-text {
+  font-size: 16px;
+  width: 50vw;
+}
+
+label {
+  font-size: 22px;
+}
+
+.table-text p {
+  background-color: blue;
 }

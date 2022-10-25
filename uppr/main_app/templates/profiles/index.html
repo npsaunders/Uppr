@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Profile</h1>
+<h1 id="main-title">Profile</h1>
 {% for profile in object_list %}
 <div class="card">
     <a href="{% url 'profiles_detail' profile.id %}">
