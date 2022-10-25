@@ -36,7 +36,7 @@ img {
 #main-title {
   text-align: center;
   color: blue;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 h5 {
@@ -48,8 +48,8 @@ h5 {
 div.scroll {
   margin:4px, 4px;
   padding:4px;
-  background-color: blue;
-  color: white;
+  background-color: white;
+  border: 2px solid blue;
   width: 70vw;
   height: 65vh;
   overflow-x: hidden;
@@ -64,5 +64,15 @@ div.scroll h5 {
 
 div.scroll a {
   font-weight: 700;
-  color: yellow;
+  color: black;
+}
+
+.category {
+  color: blue;
+}
+/* ----------- Question Details ----------- */
+
+.question-detail {
+  color: blue;
+  font-size: 17px;
 }

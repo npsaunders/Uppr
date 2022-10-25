@@ -4,8 +4,8 @@
 {% for question in questions %}
 
 <a href="{% url 'detail' question.id %}">
-          <div>  <h5>{{ question.user_question }}</h5>
-          Category: {{ question.category }}</div></a>
+          <div>  <h5>Q: {{ question.user_question }}</h5>
+          <span class="category"> Category: {{ question.category }}</span></div></a>
           <hr>
 {% endfor %}
 </div>
