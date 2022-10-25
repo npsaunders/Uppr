@@ -12,7 +12,7 @@
         Answer 3: {{ question.answer3 }} </br>
         Answer 4: {{ question.answer4 }} </br>
         Correct Answer: {{ question.correct_answer }}</br>
-        {% comment %} Category: {{ question.category }} {% endcomment %}
+        Category: {{ question.category }}
       </div>
       <div class="card-action">
         <a href="{% url 'questions_update' question.id %}">Edit</a>

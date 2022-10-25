@@ -12,7 +12,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from .models import Question, Category
+from .models import Question, Profile
 
 # *****   VIEW  => urls.py + views.py => in Model/View/Template ******
 # The views.py is the second stop after a user clicks on a button/enters a url.
@@ -54,7 +54,6 @@ def questions_detail(request, question_id):
         "questions/detail.html",
         {
             "question": question,
-            # "categories": categories,
         },
     )
 
@@ -91,10 +90,6 @@ def signup(request):
 
 # ----------------- CLASS BASED VIEWS   'C'reate, 'U'pdate, & 'D'elete  ---------
 
-# def categories_index(request):
-#     categories = Category.objects.all()
-#     return render(request, "categories/category_form.html", {"categories": categories})
-
 class QuestionCreate(LoginRequiredMixin, CreateView):
     model = Question
     fields = [
@@ -105,6 +100,7 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
         "answer4",
         "correct_answer",
         "time_allowed",
+        "category",
     ]
     # success_url = "/questions/"
 
@@ -126,6 +122,7 @@ class QuestionUpdate(LoginRequiredMixin, UpdateView):
         "answer4",
         "correct_answer",
         "time_allowed",
+        "category",
     ]
 
 
@@ -136,22 +133,46 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
 
 #--------------- Category CRUD
 
-class CategoryList(LoginRequiredMixin,ListView):
-    model = Category
-    template_name = 'categories/index.html'
+# class CategoryList(LoginRequiredMixin,ListView):
+#     model = Category
+#     template_name = 'categories/index.html'
 
-class CategoryCreate(LoginRequiredMixin,CreateView):
-    model = Category
+# class CategoryCreate(LoginRequiredMixin,CreateView):
+#     model = Category
+#     fields = '__all__'
+
+# class CategoryUpdate(LoginRequiredMixin,UpdateView):
+#     model = Category
+#     fields = '__all__'
+
+# class CategoryDelete(LoginRequiredMixin,DeleteView):
+#     model = Category
+#     success_url = '/categories/'
+
+# class CategoryDetail(LoginRequiredMixin,DetailView):
+#     model = Category
+#     template_name = 'categories/detail.html'
+
+class ProfileList(LoginRequiredMixin,ListView):
+    model = Profile
+    template_name = 'profiles/index.html'
+
+class ProfileCreate(LoginRequiredMixin,CreateView):
+    model = Profile
+    fields = ['name','screen_name','age']
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+      form.instance.user = self.request.user  # form.instance is the question
+      return super().form_valid(form)
+
+class ProfileUpdate(LoginRequiredMixin,UpdateView):
+    model = Profile
     fields = '__all__'
 
-class CategoryUpdate(LoginRequiredMixin,UpdateView):
-    model = Category
-    fields = '__all__'
+class ProfileDelete(LoginRequiredMixin,DeleteView):
+    model = Profile
+    success_url = '/profiles/'
 
-class CategoryDelete(LoginRequiredMixin,DeleteView):
-    model = Category
-    success_url = '/categories/'
-
-class CategoryDetail(LoginRequiredMixin,DetailView):
-    model = Category
-    template_name = 'categories/detail.html'
+class ProfileDetail(LoginRequiredMixin,DetailView):
+    model = Profile
+    template_name = 'profiles/detail.html'

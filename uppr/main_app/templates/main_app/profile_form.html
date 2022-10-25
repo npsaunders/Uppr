@@ -3,10 +3,10 @@
 {% block content %}
 
 {% if object %}
-    <h1>Update this question: </h1>
+    <h1>Update Profile: </h1>
 
 {% else %}
-    <h1>Add Question</h1>
+    <h1>Add Profile</h1>
 {% endif %}
 
 <form action="" method="post">
@@ -14,6 +14,7 @@
     <table>
         {{ form.as_table }}
     </table>
-    <input class="btn blue" type="submit" value="{% if object %} Update Question{% else %} Add Question {% endif %}">
+    <input class="btn blue" type="submit" value="{% if object %} Update Profile{% else %} Add Profile {% endif %}">
 </form>
 {% endblock %} 
+

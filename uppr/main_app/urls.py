@@ -17,14 +17,20 @@ urlpatterns = [
     # <int:pk>  assure that our primary key is an integer
     path('questions/<int:pk>/update/', views.QuestionUpdate.as_view(), name='questions_update'),
     path('questions/<int:pk>/delete/', views.QuestionDelete.as_view(), name='questions_delete'),
-    # ------ Categories --------    
-    path('categories/', views.CategoryList.as_view(), name='categories_index'),
+    # ------ User Profile --------    
+    # path('categories/', views.CategoryList.as_view(), name='categories_index'),
     #path('categories/', views.categories_index, name='categories_index'),
-    path('categories/<int:pk>/', views.CategoryDetail.as_view(), name='categories_detail'),
-    path('categories/create/', views.CategoryCreate.as_view(), name='categories_create'),
-    path('categories/<int:pk>/update/', views.CategoryUpdate.as_view(), name='categories_update'),
-    path('categories/<int:pk>/delete/', views.CategoryDelete.as_view(), name='categories_delete'),
+    # path('categories/<int:pk>/', views.CategoryDetail.as_view(), name='categories_detail'),
+    # path('categories/create/', views.CategoryCreate.as_view(), name='categories_create'),
+    # path('categories/<int:pk>/update/', views.CategoryUpdate.as_view(), name='categories_update'),
+    # path('categories/<int:pk>/delete/', views.CategoryDelete.as_view(), name='categories_delete'),
     # path('questions/<int:question_id>/assoc_category/<int:category_id>/', views.assoc_category, name='assoc_category'),
+    path('profiles/', views.ProfileList.as_view(), name='profiles_index'),
+    # path('profiles/', views.profiles_index, name='profiles_index'),
+    path('profiles/<int:pk>/', views.ProfileDetail.as_view(), name='profiles_detail'),
+    path('profiles/create/', views.ProfileCreate.as_view(), name='profiles_create'),
+    path('profiles/<int:pk>/update/', views.ProfileUpdate.as_view(), name='profiles_update'),
+    path('profiles/<int:pk>/delete/', views.ProfileDelete.as_view(), name='profiles_delete'),
     # ----------
     path('interview_time/',views.interview_time, name="interview_time"),
     # authentication/authorization paths

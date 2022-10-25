@@ -23,16 +23,16 @@
           <ul class="right">
             <li><a href="{% url 'interview_time' %}">Interview Time</a></li> 
             <li><a href="{% url 'about' %}">About</a></li> 
-            {% if user.is_authenticated %}                       
-             <li><a href="{% url 'categories_create' %}">Add a Question Category</a></li>
-            <li><a href="{% url 'categories_index' %}">View All Question Categories</a></li>
+            {% if user.is_authenticated %}  
+             <li><a href="{% url 'profiles_create' %}">Add a Profile</a></li>
+            <li><a href="{% url 'profiles_index' %}">View Profile </a></li>
             <li><a href="{% url 'questions_create' %}">Add a Question</a></li>
+            <li><a href="{% url 'index' %}">View All My Questions</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
             {% endif %}
-            <li><a href="{% url 'index' %}">View All My Questions</a></li>
           </ul>
         </div>
       </nav>
