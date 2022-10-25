@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login
 
 # Import the login_required decorator
@@ -12,8 +12,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from .models import Question
-# , Category
+from .models import Question, Category
 
 # *****   VIEW  => urls.py + views.py => in Model/View/Template ******
 # The views.py is the second stop after a user clicks on a button/enters a url.
@@ -92,6 +91,9 @@ def signup(request):
 
 # ----------------- CLASS BASED VIEWS   'C'reate, 'U'pdate, & 'D'elete  ---------
 
+# def categories_index(request):
+#     categories = Category.objects.all()
+#     return render(request, "categories/category_form.html", {"categories": categories})
 
 class QuestionCreate(LoginRequiredMixin, CreateView):
     model = Question
@@ -116,7 +118,7 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
 
 class QuestionUpdate(LoginRequiredMixin, UpdateView):
     model = Question
-    fields = [        
+    fields =  [        
       "user_question",
         "answer1",
         "answer2",
@@ -134,22 +136,22 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
 
 #--------------- Category CRUD
 
-# class CategoryCreate(LoginRequiredMixin,CreateView):
-#     model = Category
-#     fields = ('name')
+class CategoryList(LoginRequiredMixin,ListView):
+    model = Category
+    template_name = 'categories/index.html'
 
-# class CategoryUpdate(LoginRequiredMixin,UpdateView):
-#     model = Category
-#     fields = ('name')
+class CategoryCreate(LoginRequiredMixin,CreateView):
+    model = Category
+    fields = '__all__'
 
-# class CategoryDelete(LoginRequiredMixin,DeleteView):
-#     model = Category
-#     success_url = '/categories/'
+class CategoryUpdate(LoginRequiredMixin,UpdateView):
+    model = Category
+    fields = '__all__'
 
-# class CategoryDetail(LoginRequiredMixin,DetailView):
-#     model = Category
-#     template_name = 'categories/detail.html'
+class CategoryDelete(LoginRequiredMixin,DeleteView):
+    model = Category
+    success_url = '/categories/'
 
-# class CategoryList(LoginRequiredMixin,ListView):
-#     model = Category
-#     template_name = 'categories/index.html'
+class CategoryDetail(LoginRequiredMixin,DetailView):
+    model = Category
+    template_name = 'categories/detail.html'

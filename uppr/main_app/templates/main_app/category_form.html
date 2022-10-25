@@ -1,4 +1,4 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -14,8 +14,5 @@
         {{ form.as_table }}
     </table>
     <input class="btn blue" type="submit" value="{% if object %} Update Category {% else %} Add Category {% endif %}">
-</form>
-
-{% endblock %}  {% endcomment %}
-
-<h1>Category Form</h1>
+</form> 
+{% endblock %}

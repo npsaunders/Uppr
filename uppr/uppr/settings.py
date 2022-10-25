@@ -22,9 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ***In .env file; when deploying to Heroku, use the config vars to set the security key ****
 SECRET_KEY = config('SECRET_KEY')
+
+
 #put DEBUG=True in the .env file. This will be False in production since .env will not be pushed to repo/Heroku
 DEBUG = config('DEBUG', default=False, cast=bool)
-
+# DEBUG=True
 #Local Host
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -44,13 +46,13 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = "uppr.urls"
@@ -121,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-LOGIN_REDIRECT_URL = '/questions'
+LOGIN_REDIRECT_URL = '/questions/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type

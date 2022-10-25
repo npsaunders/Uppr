@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    #Admin routh
-    path("admin/", admin.site.urls), 
     # main root route
     path('', include('main_app.urls')),
+    #Admin routh
+    path("admin/", admin.site.urls), 
     # routes to predefined urls that have authentication
     path('accounts/', include('django.contrib.auth.urls')),
 ]
