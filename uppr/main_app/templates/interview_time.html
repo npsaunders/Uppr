@@ -11,16 +11,63 @@
   <div class="card">
     <div class="card-content">
       
-  <button class="btn">{{ question.answer1 }}</button>
-  <button class="btn">{{ question.answer2 }}</button>
+  <button class="btn" id="btn1">{{ question.answer1 }}</button>
+  <button class="btn" id="btn2">{{ question.answer2 }}</button>
   {% if question.answer3 %}
-  <button class="btn">{{ question.answer3 }}</button>
-  <button class="btn">{{ question.answer4 }}</button>
-  {% comment %} {% else %} {% endcomment %}
-  {% comment %} <div id="answer">{{question.correct_answer}}</div> {% endcomment %}
+  <button class="btn" id="btn3">{{ question.answer3 }}</button>
+  <button class="btn" id="btn4">{{ question.answer4 }}</button>
+  <div id="answer" style="color:white">{{question.correct_answer}}</div> 
+  <h1><div id="rightwrong"></div><h1>
   {% endif %}
     </div>
 </div>
+
+<script>
+const answer = document.getElementById("answer").innerHTML.toLowerCase()
+const btn1 = document.getElementById("btn1")
+btn1.addEventListener("click", function (evt) {
+  btnval=btn1.innerHTML.toLowerCase()
+  if (btnval === answer){
+   document.getElementById("rightwrong").innerHTML = "Correct!"
+  }
+  else {
+    document.getElementById("rightwrong").innerHTML = "Wrong!"
+  }
+})
+
+const btn2 = document.getElementById("btn2")
+btn2.addEventListener("click", function (evt) {
+  btnval=btn2.innerHTML.toLowerCase()
+  if (btnval === answer){
+   document.getElementById("rightwrong").innerHTML = "Correct!"
+  }
+  else {
+    document.getElementById("rightwrong").innerHTML = "Wrong!"
+  }
+})
+
+const btn3 = document.getElementById("btn3")
+btn3.addEventListener("click", function (evt) {
+  btnval=btn3.innerHTML.toLowerCase()
+  if (btnval === answer){
+   document.getElementById("rightwrong").innerHTML = "Correct!"
+  }
+  else {
+    document.getElementById("rightwrong").innerHTML = "Wrong!"
+  }
+})
+
+const btn4 = document.getElementById("btn4")
+btn4.addEventListener("click", function (evt) {
+  btnval=btn4.innerHTML.toLowerCase()
+  if (btnval === answer){
+   document.getElementById("rightwrong").innerHTML = "Correct!"
+  }
+  else {
+    document.getElementById("rightwrong").innerHTML = "Wrong!"
+  }
+})
+</script>
 
  <div class"next-but"><a href='/interview_time'/><button class="btn next">Next</button></a></div>
 {% endblock%} 
