@@ -18,6 +18,12 @@ nav {
   font-size: 20px;
 }
 
+.btn {
+  background-color: blue;
+  color: white;
+  font-size: 15px;
+}
+
 .nav-wrapper li .brand-logo {
   color: yellow;
   margin-left: 20px;

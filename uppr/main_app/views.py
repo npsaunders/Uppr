@@ -20,19 +20,19 @@ import random
 # The urls.py paths send the request along to here.
 #
 # *** Home page ( render home.html )
-def home(request):
-    return render(request, "home.html")
+# def home(request):
+#     if user.is_authenticated:
+#         profiles = Profile.objects.filter(user=request.user)
+#         return render(request, "home.html",{"profiles":profiles})
+#     else: 
+#         return render(request,"home.html")
 
-
-# *** About page ( render about.html )
-def about(request):
-    return render(request, "about.html")
-
-
-# *** INTERVIEW_TIME html page; pass in all questions; render the interview_time page ***
+# *** INTERVIEW_TIME html page; pass in a randomly selected question to the interview_time.html page; render the interview_time page ***
 def interview_time(request):
     questions = Question.objects.all()
+    #choose a random number from 0 to length of the questions queryset-1
     n=random.randint(0,questions.count()-1)
+    #return the randomly selected question to display in the practice interview
     question = questions[n]
     return render(request, "interview_time.html", {"question": question})
 
@@ -90,6 +90,10 @@ def signup(request):
     context = {"form": form, "error_message": error_message}
     return render(request, "registration/signup.html", context)
 
+def home(request):
+        # profiles = Profile.objects.filter(user=request.user)
+        # return render(request, "home.html",{"profiles":profiles})
+        return render(request, "home.html")
 
 # ----------------- CLASS BASED VIEWS   'C'reate, 'U'pdate, & 'D'elete  ---------
 

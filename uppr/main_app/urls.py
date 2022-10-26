@@ -9,7 +9,6 @@ from . import views
 # the format is path('url',views._____, name='')
 urlpatterns = [
     path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
     #-------- Questions -------
     path('questions/', views.questions_index, name='index'),
     path('questions/<int:question_id>/', views.questions_detail, name='detail'),

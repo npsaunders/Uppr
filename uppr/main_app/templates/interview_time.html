@@ -5,22 +5,22 @@
 
 <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ question.user_question }}</span>
+      <span class="card-title">Q: {{ question.user_question }}</span>
     </div>
   </a>
   <div class="card">
     <div class="card-content">
       
-  <button>{{ question.answer1 }}</button>
-  <button>{{ question.answer2 }}</button>
+  <button class="btn">{{ question.answer1 }}</button>
+  <button class="btn">{{ question.answer2 }}</button>
   {% if question.answer3 %}
-  <button>{{ question.answer3 }}</button>
-  <button>{{ question.answer4 }}</button>
-  {% else %}
-  <div id="answer">{{question.correct_answer}}</div>
+  <button class="btn">{{ question.answer3 }}</button>
+  <button class="btn">{{ question.answer4 }}</button>
+  {% comment %} {% else %} {% endcomment %}
+  {% comment %} <div id="answer">{{question.correct_answer}}</div> {% endcomment %}
   {% endif %}
     </div>
 </div>
 
-  <a href='/interview_time'/><button>Next</button></a>
+ <div class"next-but"><a href='/interview_time'/><button class="btn next">Next</button></a></div>
 {% endblock%} 

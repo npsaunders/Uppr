@@ -25,8 +25,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 #put DEBUG=True in the .env file. This will be False in production since .env will not be pushed to repo/Heroku
-#DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG=True
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 #Local Host
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-LOGIN_REDIRECT_URL = '/questions/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
@@ -132,5 +132,5 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #for use with Heroku *** UNCOMMENT WHEN DEPLOYING TO HEROKU ***
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
