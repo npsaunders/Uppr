@@ -25,8 +25,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 #put DEBUG=True in the .env file. This will be False in production since .env will not be pushed to repo/Heroku
-DEBUG = config('DEBUG', default=False, cast=bool)
-
+# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False
 #Local Host
 ALLOWED_HOSTS = ['127.0.0.1']
 

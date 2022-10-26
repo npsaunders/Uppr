@@ -22,12 +22,9 @@
             <li><a href="/" class="left brand-logo">  Uppr</a></li>    
           <ul class="right">
             <li><a href="{% url 'interview_time' %}">Practice Interview</a></li> 
-             {% if user.is_authenticated %}  
-             {% if profiles.exists %}
-            <li><a href="{% url 'profiles_index' %}">View Profile </a></li>
-            {% else %}
+             {% if user.is_authenticated %}         
             <li><a href="{% url 'profiles_create' %}">Add Profile</a></li>
-            {% endif %}
+            <li><a href="{% url 'profiles_index' %}">View Profile </a></li>      
             <li><a href="{% url 'questions_create' %}">Add a Question</a></li>
             <li><a href="{% url 'index' %}">View All My Questions</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
