@@ -13,6 +13,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .models import Question, Profile
+import random 
 
 # *****   VIEW  => urls.py + views.py => in Model/View/Template ******
 # The views.py is the second stop after a user clicks on a button/enters a url.
@@ -31,7 +32,9 @@ def about(request):
 # *** INTERVIEW_TIME html page; pass in all questions; render the interview_time page ***
 def interview_time(request):
     questions = Question.objects.all()
-    return render(request, "interview_time.html", {"questions": questions})
+    n=random.randint(0,questions.count()-1)
+    question = questions[n]
+    return render(request, "interview_time.html", {"question": question})
 
 
 # ----------------- QUESTION FUNCTIONS -------------------
