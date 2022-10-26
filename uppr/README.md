@@ -22,14 +22,11 @@ You can do a practice exercise without logging in/creating a user. For additiona
 
 ### **Technologies Used**
 
+- Django
+- Python
 - HTML5
-- CSS3
 - JavaScript
-- Node.js
-- Express
-- EJS
-- Mongoose
-- MongoDB
+- CSS
 - Materialize
 
 ---
